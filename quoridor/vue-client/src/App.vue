@@ -155,15 +155,32 @@ export default {
     },
     mounted() {
         //     pour le design responsive
-        const mediaQuery = window.matchMedia('(min-width: 1024px)');
-        this.updateResponsiveState(mediaQuery);
-        mediaQuery.addListener(this.updateResponsiveState);
+      // const mediaQueryPhone = window.matchMedia('(max-width: 767px)');
+      // const mediaQueryTablet = window.matchMedia('(min-width: 768px) and (max-width: 1023px)');
+      // const mediaQueryLaptop = window.matchMedia('(min-width: 1024px)');
+
+      const mediaQueryPhone = window.matchMedia('(max-width: 767px)');
+      const mediaQueryLaptop = window.matchMedia('(min-width: 1024px)');
+
+      if (mediaQueryPhone.matches) {
+        // Styles spécifiques pour les téléphones
+        this.updateResponsiveState(mediaQueryPhone);
+      } else if (mediaQueryLaptop.matches) {
+        // Styles spécifiques pour les ordinateurs portables
+        this.updateResponsiveState(mediaQueryLaptop);
+      }
+      mediaQueryLaptop.addListener(this.updateResponsiveState);
+      mediaQueryPhone.addListener(this.updateResponsiveState);
+
+      // const mediaQuery = window.matchMedia('(min-width: 1024px)');
+        // mediaQuery.addListener(this.updateResponsiveState);
 
         // recuperation taille pour initialiser le canvas
         this.largeurEcran()
 
         // ecouteur pour mettre a jour la taille du canvas
         window.addEventListener('resize', this.largeurEcran);
+
 
     },
     created() {
@@ -281,8 +298,13 @@ export default {
         }
     },
     beforeDestroy() { // tout est dans le nom
-        const mediaQuery = window.matchMedia('(min-width: 1024px)');
-        mediaQuery.removeListener(this.updateResponsiveState);
+        // const mediaQuery = window.matchMedia('(min-width: 1024px)');
+        // mediaQuery.removeListener(this.updateResponsiveState);
+
+      const mediaQueryPhone = window.matchMedia('(max-width: 767px)');
+      const mediaQueryLaptop = window.matchMedia('(min-width: 1024px)');
+      mediaQueryPhone.removeListener(updateResponsiveState);
+      mediaQueryLaptop.removeListener(updateResponsiveState);
     }
 };
 </script>
@@ -491,5 +513,194 @@ export default {
 }
 
 
+@media (max-width: 767px) {
+
+  .responsive-container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+  }
+
+
+  .le-jeux {
+    margin-top: 1vh;
+    max-height: 80%;
+    overflow: hidden; /* Empêche le dépassement de contenu de la div */
+  }
+
+  /*.template {*/
+  /*  height: 100%;*/
+  /*  display: grid;*/
+  /*  grid-template-columns: 20% 60% 20%; !* Utilisation des pourcentages pour les colonnes *!*/
+  /*}*/
+
+  /*.one {*/
+  /*  grid-column: 1; !* Début de la première colonne *!*/
+  /*  grid-row: 1;*/
+  /*}*/
+
+  /*.two {*/
+  /*  grid-column: 2; !* Début de la deuxième colonne *!*/
+  /*  grid-row: 1;*/
+  /*}*/
+
+  /*.three {*/
+  /*  grid-column: 3; !* Début de la troisième colonne *!*/
+  /*  grid-row: 1;*/
+  /*}*/
+
+  .divImg {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .img1 {
+    width: 100%;
+  }
+
+  @keyframes scaleMove {
+    0% {
+      transform: rotate(360deg);
+    }
+    50% {
+      transform: scale(1.2);
+
+    }
+    100% {
+      transform: scale(1.05);
+    }
+
+  }
+  .boutons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    gap: 5vh;
+    margin-top: 2.5vh;
+
+  }
+
+
+  .myBtn {
+    /*font-size: 1vw;*/
+    cursor: pointer;
+    /*font-size: 3em;*/
+    padding: 1vh 2vw;
+    background: #0B0B0B;
+    box-shadow: rgba(255, 0, 0, 0.35) 0px 5px 15px;
+    border: 2px solid #0b5ed7;
+    color: #0b5ed7;
+  }
+
+
+  .credit {
+    display: none;
+  }
+
+  .game_rule {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 2vh;
+
+    display: flex;
+    flex-direction: row;
+    gap: 3vh;
+  }
+
+
+  .game_rule div {
+    background: #0B0B0B;
+    box-shadow: rgba(255, 0, 0, 0.35) 0px 5px 15px;
+    border: 2px solid #0b5ed7;
+    color: #0b5ed7;
+  }
+
+  .alertmyturn {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 50%;
+    padding: 1vh;
+    background: #0B0B0B;
+    box-shadow: rgba(5, 137, 89, 0.35) 0px 5px 15px;
+    border: 2px solid #01D58E;
+    color: #01D58E;
+    margin-bottom: 2vh;
+  }
+
+  .alertnotmyturn {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 50%;
+    padding: 1vh;
+    background: #0B0B0B;
+    box-shadow: rgba(121, 15, 194, 0.35) 0px 5px 15px;
+    border: 2px solid #B85BF1;
+    color: #B85BF1;
+    margin-bottom: 2vh;
+
+  }
+
+  .popupWin {
+    position: fixed;
+    top: 40%;
+    bottom: 40%;
+    left: 30%;
+    right: 30%;
+    width: 40%;
+    height: 20%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*position: relative;*/
+    z-index: 999;
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%, -50%);*/
+    background: rgba(30, 30, 30, 0.75);
+    box-shadow: rgba(77, 150, 214, 0.8) 0px 5px 15px;
+    border: 2px solid #0b5ed7;
+    color: #0b5ed7;
+  }
+
+  .popupLoose {
+    position: fixed;
+    top: 40%;
+    bottom: 40%;
+    left: 30%;
+    right: 30%;
+    width: 40%;
+    height: 20%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*position: relative;*/
+    z-index: 999;
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%, -50%);*/
+    background: rgba(30, 30, 30, 0.75);
+    box-shadow: rgba(255, 0, 0, 0.35) 0px 5px 15px;
+    border: 2px solid rgba(255, 0, 0, 0.35);
+    color: rgba(255, 0, 0, 0.35);
+  }
+
+  .popup p {
+    margin: auto;
+  }
+}
 </style>
 

@@ -49,7 +49,7 @@ export default {
 <style scoped>
 
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .bloc-modale {
         position: fixed;
         top: 10%;
@@ -158,5 +158,114 @@ export default {
         height: auto;
     }
 
+}
+
+
+@media (max-width: 767px) {
+  .bloc-modale {
+    position: fixed;
+    top: 10%;
+    bottom: 10%;
+    left: 10%;
+    right: 0;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0B0B0B;
+    box-shadow: rgba(255, 0, 0, 0.35) 0px 5px 15px;
+    border: 2px solid #0b5ed7;
+    flex-direction: column;
+    color: #0c63e4;
+    z-index: 999;
+
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* transparent black */
+    /*z-index: -10; !* ensure it is above other elements *!*/
+    z-index: 998;
+  }
+
+  .myBtn {
+    cursor: pointer;
+    /*font-size: 3em;*/
+    padding: 1vh 1vh;
+    background: #0B0B0B;
+    box-shadow: rgba(255, 0, 0, 0.35) 0px 5px 15px;
+    border: 2px solid #0b5ed7;
+    color: #0b5ed7;
+  }
+
+  .myClose {
+    margin-top: 1vh;
+    margin-right: 1vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  /*.regle {*/
+  /*  margin: 5vh;*/
+  /*  display: grid;*/
+  /*  grid-template-columns: repeat(3, 1fr);*/
+  /*  grid-gap: 2vh;*/
+  /*  grid-auto-rows: minmax(100px, auto);*/
+  /*  width: 100%*/
+  /*}*/
+
+  /*.one {*/
+  /*  margin: auto;*/
+  /*  grid-column: 1/2;*/
+  /*  grid-row: 1;*/
+  /*  width: 100%;*/
+  /*}*/
+
+  /*.two {*/
+  /*  margin: auto;*/
+  /*  grid-column: 2/3;*/
+  /*  grid-row: 1;*/
+  /*  width: 100%;*/
+  /*}*/
+
+  /*.three {*/
+  /*  margin: auto;*/
+  /*  grid-column: 3/4;*/
+  /*  grid-row: 1;*/
+  /*  width: 100%;*/
+  /*}*/
+
+  h1 {
+    font-size:3vw;
+    margin-bottom: 2vh;
+  }
+
+  h3 {
+  display: none;
+  }
+
+  p {
+    font-size: 2vw;
+    margin-top: 1vh;
+    text-align: center;
+  }
+
+  .container-image {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .image {
+    display: block;
+    margin: auto;
+    width: 45%;
+    height: auto;
+  }
 }
 </style>

@@ -155,4 +155,76 @@ export default {
         right: 0;
     }
 }
+
+@media (max-width: 767px) {
+  .bloc-modale {
+    position: fixed;
+    top: 10%;
+    bottom: 10%;
+    left: 10%;
+    right: 0;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0B0B0B;
+    box-shadow: rgba(255, 0, 0, 0.35) 0px 5px 15px;
+    border: 2px solid #0b5ed7;
+    flex-direction: column;
+    color: #0c63e4;
+    z-index: 999;
+    font-size: 2vw;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+
+  input[type=text] {
+    width: 80%;
+    background: #333363;
+    color: cornflowerblue;
+
+  }
+
+
+  .user {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    justify-content: center;
+  }
+
+  .myBtn {
+    cursor: pointer;
+    padding: 1vh 1vh;
+    background: #0B0B0B;
+    box-shadow: rgba(255, 0, 0, 0.35) 0px 5px 15px;
+    border: 2px solid #0b5ed7;
+    color: #0b5ed7;
+    width: 50%;
+    margin: auto;
+  }
+
+  .myClose {
+    cursor: pointer;
+    padding: 1vh 1vh;
+    background: #0B0B0B;
+    box-shadow: rgba(255, 0, 0, 0.35) 0px 5px 15px;
+    border: 2px solid #0b5ed7;
+    color: #0b5ed7;
+    margin-top: 1vh;
+    margin-right: 1vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
 </style>

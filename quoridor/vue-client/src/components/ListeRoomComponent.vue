@@ -138,4 +138,64 @@ export default {
     }
 
 }
+
+@media (max-width: 767px)  {
+  .listeRoom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .listeRoom h1 {
+    font-size: 3vw;
+    padding: 5vh;
+    position: absolute;
+    top: 0;
+  }
+
+  .mycontainer {
+    margin-top: 5vh;
+    max-height: 70%;
+    overflow: auto;
+  }
+
+  .room {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #0B0B0B;
+    box-shadow: rgba(255, 0, 0, 0.35) 0px 5px 15px;
+    border: 2px solid #0b5ed7;
+    color: #0c63e4;
+    margin-bottom: 2vh;
+  }
+
+  .row {
+    font-size: 2vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    list-style: none;
+    padding: 1vh;
+  }
+
+  .myBtn {
+    display: none;
+  }
+
+
+
+  .room p {
+    margin: auto;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
+
+
+
+}
 </style>

@@ -292,5 +292,142 @@ export default {
     }
 
 }
+
+
+@media (max-width: 767px) {
+  .bloc-modale {
+    position: fixed;
+    top: 10%;
+    bottom: 10%;
+    left: 10%;
+    right: 0;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0B0B0B;
+    box-shadow: rgba(255, 0, 0, 0.35) 0px 5px 15px;
+    border: 2px solid #0b5ed7;
+    flex-direction: column;
+    color: #0c63e4;
+    z-index: 999;
+    font-size: 2vw;
+  }
+
+  input[type="radio"].demo1 {
+    display: none;
+  }
+
+  input[type="radio"].demo1 + label {
+    padding: 0.3rem 0.5rem;
+    border: 1px dashed #333363;
+  }
+
+  input[type="radio"].demo1:checked + label {
+    border: 1px solid #0b5ed7;
+    background: #333363;
+  }
+
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    padding: 2vh;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .alldiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 1vh;
+  }
+
+
+  .row {
+    /*font-size: 1vw;*/
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    gap: 2vh;
+    list-style: none;
+  }
+
+  .row div {
+    list-style: none;
+    padding: 0;
+  }
+
+  .row p {
+    width: 80%;
+  }
+
+  input[type=text] {
+    width: 80%;
+    background: #333363;
+    color: cornflowerblue;
+  }
+
+
+  input[type=range] {
+    width: 80%;
+    height: 2.5vh;
+    border-radius: 5px;
+    -webkit-appearance: none;
+    background: #333363;
+  }
+
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 2vh;
+    height: 3.5vh;
+    border-radius: 5px;
+    background: #0b5ed7;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .myBtn {
+    /*font-size: 1vw;*/
+    cursor: pointer;
+    /*font-size: 3em;*/
+    padding: 1vh 1vh;
+    background: #0B0B0B;
+    box-shadow: rgba(255, 0, 0, 0.35) 0px 5px 15px;
+    border: 2px solid #0b5ed7;
+    color: #0b5ed7;
+    width: 50%;
+    margin: auto;
+  }
+
+  .myClose {
+    cursor: pointer;
+    padding: 1vh 1vh;
+    background: #0B0B0B;
+    box-shadow: rgba(255, 0, 0, 0.35) 0px 5px 15px;
+    border: 2px solid #0b5ed7;
+    color: #0b5ed7;
+    margin-top: 1vh;
+    margin-right: 1vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+
+}
 </style>
   
