@@ -303,8 +303,8 @@ export default {
 
       const mediaQueryPhone = window.matchMedia('(max-width: 767px)');
       const mediaQueryLaptop = window.matchMedia('(min-width: 1024px)');
-      mediaQueryPhone.removeListener(updateResponsiveState);
-      mediaQueryLaptop.removeListener(updateResponsiveState);
+      mediaQueryPhone.removeListener(this.updateResponsiveState);
+      mediaQueryLaptop.removeListener(this.updateResponsiveState);
     }
 };
 </script>
