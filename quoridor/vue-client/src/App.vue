@@ -262,7 +262,6 @@ export default {
             if(mediaQueryPhone.matches){
               this.largeur = viewportWidth*0.9;
               this.taillemin =this.largeur
-              console.log(this.largeur)
             }else {
 
               this.hauteur = viewportHeight * 0.75;

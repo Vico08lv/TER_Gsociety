@@ -167,12 +167,13 @@ export default {
 </script>
 
 <style scoped>
-@media (min-width: 1024px) {
+
     .container {
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-}
+
+
 </style>
