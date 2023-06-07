@@ -70,4 +70,33 @@ export default {
 
 }
 
+
+@media  (max-width: 767px) {
+  .listeUser {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .listeUser h1 {
+    font-size: 3vw;
+    margin-top: 8vh;
+    position: absolute;
+    top: 0;
+  }
+
+  .spinner-border {
+  }
+
+  #user-list li {
+    margin-top: 5vh;
+    list-style: none;
+  }
+
+  ul {
+    padding: 0;
+  }
+}
+
 </style>

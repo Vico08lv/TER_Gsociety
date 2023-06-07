@@ -19,7 +19,7 @@
         <regles v-bind:revele="reveleRegles" v-bind:toggleModale="toggleRegles"></regles>
         <credit v-bind:revele="reveleCredit" v-bind:toggleModale="toggleCredit"></credit>
         <!--         Logo du jeu quand la partie a commencé -->
-        <div><img src="./assets/quoridor_logo.gif" v-if="playGame" style="width: 30%; margin: auto;display: flex"></div>
+        <div><img src="./assets/quoridor_logo.gif" v-if="playGame" class="logoplay"></div>
         <div>
             <!--                  Popup pour informer si victoire-->
             <div class="popupWin" v-if="showPopup && Object.keys(this.winner)[0]===this.player.socketId">
@@ -256,11 +256,19 @@ export default {
     methods: {
 
         largeurEcran() {// pour evaluer la meilleur dimention du canvas
-            var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
-            var viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-            this.hauteur = viewportHeight * 0.75;
-            this.largeur = viewportWidth * 0.5;
-            this.taillemin = Math.min(this.largeur, this.hauteur)
+          var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+          var viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+          const mediaQueryPhone = window.matchMedia('(max-width: 767px)');
+            if(mediaQueryPhone.matches){
+              this.largeur = viewportWidth*0.9;
+              this.taillemin =this.largeur
+              console.log(this.largeur)
+            }else {
+
+              this.hauteur = viewportHeight * 0.75;
+              this.largeur = viewportWidth * 0.5;
+              this.taillemin = Math.min(this.largeur, this.hauteur)
+            }
         },
         updateResponsiveState(mediaQuery) { // responsive design
             this.isResponsive = mediaQuery.matches;
@@ -510,6 +518,12 @@ export default {
     .popup p {
         margin: auto;
     }
+
+    .logoplay{
+      width: 30%;
+      margin: auto;
+      display: flex
+    }
 }
 
 
@@ -520,6 +534,7 @@ export default {
     flex-direction: column;
     align-content: center;
     justify-content: center;
+    padding: 0;
   }
 
 
@@ -545,10 +560,9 @@ export default {
   /*  grid-row: 1;*/
   /*}*/
 
-  /*.three {*/
-  /*  grid-column: 3; !* Début de la troisième colonne *!*/
-  /*  grid-row: 1;*/
-  /*}*/
+  .three {
+display: none;
+  }
 
   .divImg {
     display: flex;
@@ -633,7 +647,8 @@ export default {
     box-shadow: rgba(5, 137, 89, 0.35) 0px 5px 15px;
     border: 2px solid #01D58E;
     color: #01D58E;
-    margin-bottom: 2vh;
+    margin-bottom: 10vh;
+    font-size: 2vw;
   }
 
   .alertnotmyturn {
@@ -648,8 +663,8 @@ export default {
     box-shadow: rgba(121, 15, 194, 0.35) 0px 5px 15px;
     border: 2px solid #B85BF1;
     color: #B85BF1;
-    margin-bottom: 2vh;
-
+    margin-bottom: 10vh;
+    font-size: 2vw;
   }
 
   .popupWin {
@@ -673,6 +688,7 @@ export default {
     box-shadow: rgba(77, 150, 214, 0.8) 0px 5px 15px;
     border: 2px solid #0b5ed7;
     color: #0b5ed7;
+    font-size: 2vw;
   }
 
   .popupLoose {
@@ -696,10 +712,18 @@ export default {
     box-shadow: rgba(255, 0, 0, 0.35) 0px 5px 15px;
     border: 2px solid rgba(255, 0, 0, 0.35);
     color: rgba(255, 0, 0, 0.35);
+    font-size: 2vw;
   }
 
   .popup p {
     margin: auto;
+  }
+
+  .logoplay{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    margin-top: 5vh;
   }
 }
 </style>

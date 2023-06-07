@@ -1,9 +1,9 @@
 <!--Composant pour visualiser les barrières des joueurs-->
 
 <template>
-
+     <h2 class="thetitre">Barrières</h2>
     <div class="container" >
-        <h2 class="thetitre">Barrières</h2>
+
             <div class="myBar">
                 <div ><p class="nomBar" :style="{ color : myInitGame.color}"> Moi : {{ new_nb_Walls[socket.id] }}/{{nb_Walls}}</p></div>
                 <div class="bar center">
@@ -71,6 +71,7 @@ export default {
   .container {
     text-align: center;
     color: #0d6efd;
+
   }
 
   .myBar {
@@ -108,6 +109,51 @@ export default {
 
   .thetitre{
       margin-bottom: 5vh;
+  }
+}
+
+
+
+@media (max-width: 767px) {
+  h2 {
+    font-size: 2vw;
+  }
+  p{
+    font-size: 2vw;
+  }
+  .container {
+    text-align: center;
+    color: #0d6efd;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .myBar {
+    background: #0B0B0B;
+    color: #0c63e4;
+    margin: auto auto 5vh;
+  }
+
+
+  .bar {
+   display: none;
+  }
+
+  .myBar .progress {
+    display: none;
+  }
+
+  .progress-bar {
+    display: none;
+  }
+
+  .nomBar{width: 100%; text-align: center;  margin: 0}
+
+  .thetitre{
+    margin-bottom: 2vh;
+    text-align: center;
   }
 }
 </style>

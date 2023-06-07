@@ -4,7 +4,7 @@
         <h1>Salons disponibles</h1>
         <div class="mycontainer">
             <ul id="room-list">
-                <li v-for="room in rooms" :key="room.id" class="room row">
+                <li v-for="room in rooms" :key="room.id" class="room row" @click="joinRoom(room)">
                     <p>
                         <font-awesome-icon :icon="['fas', 'gamepad']"/>
                         {{ room.id }}
@@ -21,9 +21,10 @@
                         <font-awesome-icon :icon="['fas', 'hand']"/>
                         {{ room.info.nb_Walls }}
                     </p>
-                    <button @click="joinRoom(room)" class="myBtn">Join</button>
+<!--                    <button @click="joinRoom(room)" class="myBtn">Join</button>-->
                 </li>
             </ul>
+
         </div>
     </div>
 </template>
@@ -106,17 +107,18 @@ export default {
         margin-bottom: 2vh;
     }
 
-    .row {
-        font-size: 0.9vw;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        gap: 2vw;
-        list-style: none;
-        padding: 0;
-        margin: 0 0 1vh;
-    }
 
-    .myBtn {
+  .row {
+    font-size: 0.9vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2vw;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1vh;
+    cursor: pointer;
+  }
+  .myBtn {
         font-size: 0.9vw;
         cursor: pointer;
         padding: 1vh 1vh;
@@ -150,7 +152,7 @@ export default {
 
   .listeRoom h1 {
     font-size: 3vw;
-    padding: 5vh;
+    padding-top: 5vh;
     position: absolute;
     top: 0;
   }
@@ -180,6 +182,7 @@ export default {
     grid-template-columns: 1fr 1fr 1fr 1fr ;
     list-style: none;
     padding: 1vh;
+    cursor: pointer;
   }
 
   .myBtn {
