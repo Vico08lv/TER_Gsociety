@@ -24,10 +24,16 @@ export default {
     data() {
         return {
             myTurn: null,
-            clickable: true
+            clickable: true,
+
+          eventType : 'click'
         }
     },
     mounted() {
+        if ('ontouchstart' in window) {
+          // Si l'appareil prend en charge les événements tactiles
+          this.eventType = 'touchstart';
+        }
 
         //Ecouteur pour savoir à qui est le tour
         this.socket.on("my turn", (turn) => {
@@ -80,7 +86,7 @@ export default {
                             if (j !== this.tailleGrille - 1) {
 
                                 //Quand on click sur un emplacement
-                                barV.on('click', function (evt) {
+                                barV.on(this.eventType, function (evt) {
                                     //si c'est mon tour, et que l'on est pas en attente d'une réponse du serveur (eviter les spam click)
                                     if (!this.placable && self.myTurn && self.clickable) {
                                         self.clickable = false
@@ -151,7 +157,7 @@ export default {
                                 name: "H"
                             });
                             if (i !== this.tailleGrille - 1) {
-                                barH.on('click', function (evt) {
+                                barH.on(this.eventType, function (evt) {
                                     if (!this.placable && self.myTurn && self.clickable) {
                                         self.clickable = false
                                         let bar1 = {

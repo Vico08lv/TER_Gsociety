@@ -114,7 +114,7 @@ export default {
 
 
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   h2 {
     font-size: 2vw;
   }

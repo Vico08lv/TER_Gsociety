@@ -159,7 +159,7 @@ export default {
       // const mediaQueryTablet = window.matchMedia('(min-width: 768px) and (max-width: 1023px)');
       // const mediaQueryLaptop = window.matchMedia('(min-width: 1024px)');
 
-      const mediaQueryPhone = window.matchMedia('(max-width: 767px)');
+      const mediaQueryPhone = window.matchMedia('(max-width: 1023px)');
       const mediaQueryLaptop = window.matchMedia('(min-width: 1024px)');
 
       if (mediaQueryPhone.matches) {
@@ -258,9 +258,9 @@ export default {
         largeurEcran() {// pour evaluer la meilleur dimention du canvas
           var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
           var viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-          const mediaQueryPhone = window.matchMedia('(max-width: 767px)');
+          const mediaQueryPhone = window.matchMedia('(max-width: 1023px)');
             if(mediaQueryPhone.matches){
-              this.largeur = viewportWidth*0.9;
+              this.largeur = viewportWidth*0.85;
               this.taillemin =this.largeur
             }else {
 
@@ -308,7 +308,7 @@ export default {
         // const mediaQuery = window.matchMedia('(min-width: 1024px)');
         // mediaQuery.removeListener(this.updateResponsiveState);
 
-      const mediaQueryPhone = window.matchMedia('(max-width: 767px)');
+      const mediaQueryPhone = window.matchMedia('(max-width: 1023px)');
       const mediaQueryLaptop = window.matchMedia('(min-width: 1024px)');
       mediaQueryPhone.removeListener(this.updateResponsiveState);
       mediaQueryLaptop.removeListener(this.updateResponsiveState);
@@ -526,7 +526,7 @@ export default {
 }
 
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
 
   .responsive-container {
     display: flex;
@@ -646,7 +646,7 @@ display: none;
     box-shadow: rgba(5, 137, 89, 0.35) 0px 5px 15px;
     border: 2px solid #01D58E;
     color: #01D58E;
-    margin-bottom: 10vh;
+    margin-bottom: 8vh;
     font-size: 2vw;
   }
 
@@ -662,7 +662,7 @@ display: none;
     box-shadow: rgba(121, 15, 194, 0.35) 0px 5px 15px;
     border: 2px solid #B85BF1;
     color: #B85BF1;
-    margin-bottom: 10vh;
+    margin-bottom: 8vh;
     font-size: 2vw;
   }
 

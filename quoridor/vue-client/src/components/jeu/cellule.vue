@@ -18,10 +18,16 @@ export default {
         return {
             myTurn: null,
             valid: [],
-            clickable: true
+            clickable: true,
+            eventType : 'click'
         }
     },
     mounted() {
+
+      if ('ontouchstart' in window) {
+        // Si l'appareil prend en charge les événements tactiles
+        this.eventType = 'touchstart';
+      }
 
         // Savoir a qui est le tour
         this.socket.on("my turn", (turn) => {
@@ -56,6 +62,8 @@ export default {
             immediate: true,
             handler(layerCell) {
                 const self = this;
+
+
                 if (layerCell) {
                     // On créé un damier de cellules
                     for (let i = 0; i < this.tailleGrille; i++) {
@@ -87,8 +95,9 @@ export default {
                                 //   })()
                             });
 
+
                             //Ecouteur d'évenement lié à la cellule
-                            cell.on('click', function (evt) {
+                            cell.on(this.eventType , function (evt) {
 
                                 let test = false
 

@@ -71,7 +71,7 @@ export default {
 }
 
 
-@media  (max-width: 767px) {
+@media  (max-width: 1023px) {
   .listeUser {
     display: flex;
     flex-direction: column;

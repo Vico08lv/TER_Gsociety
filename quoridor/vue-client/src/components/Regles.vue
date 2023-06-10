@@ -161,7 +161,7 @@ export default {
 }
 
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .bloc-modale {
     position: fixed;
     top: 10%;
